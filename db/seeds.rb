@@ -6,7 +6,14 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-50.times do
+50.times do |i|
     description = Faker::Lorem.sentence
-    puts description
+    user_name = Faker::Internet.user_name
+  
+    tweet = Tweet.create(
+      description: description,
+      user_name: user_name
+    )
+  
+    puts tweet.inspect
   end
