@@ -1,24 +1,24 @@
 <div class="container">
-<p style="color: green"><%= notice %></p>
+  <p style="color: green"><%= notice %></p>
 
-<h1>Tweets</h1>
+  <h1>Tweets</h1>
 
-<%= form_with url: tweets_path, method: :get do |form|%>
- <%= form.text_field :query_text, placeholder: t('Query text'), value: params[:query_text]%>
-<%end%>
+  <%= form_with url: tweets_path, method: :get do |form|%>
+  <%= form.text_field :query_text, placeholder: t('Query text'), value: params[:query_text]%>
+  <%end%>
 
-<% @tweets.each do |tweet| %>
-  <!-- Mostrar información del tweet -->
-  <p><strong><%= tweet.user_name %></strong>: <%= tweet.description %></p>
-<% end %>
+  <% @tweets.each do |tweet| %>
+    <!-- Mostrar información del tweet -->
+    <p><strong><%= tweet.user_name %></strong>: <%= tweet.description %></p>
+  <% end %>
 
-<!-- Agregar el enlace de paginación con estilos de Bootstrap -->
-<nav>
-  <ul class="pagination">
-    <%=raw pagy_nav(@pagy)%>
-  </ul>
-</nav>
+  <!-- Agregar el enlace de paginación con estilos de Bootstrap -->
+  <nav>
+    <ul class="pagination">
+      <%=raw pagy_nav(@pagy)%>
+    </ul>
+  </nav>
 
 
-<%= link_to "New tweet", new_tweet_path %>
+  <%= link_to "New tweet", new_tweet_path %>
 </div>
