@@ -3,6 +3,9 @@
 
   <h1>Tweets</h1>
 
+
+  <%= link_to "New tweet", new_tweet_path %>
+
   <%= form_with url: tweets_path, method: :get do |form|%>
   <%= form.text_field :query_text, placeholder: t('Query text'), value: params[:query_text]%>
   <%end%>
@@ -12,13 +15,8 @@
     <p><strong><%= tweet.user_name %></strong>: <%= tweet.description %></p>
   <% end %>
 
-  <!-- Agregar el enlace de paginación con estilos de Bootstrap -->
-  <nav>
-    <ul class="pagination">
-      <%=raw pagy_nav(@pagy)%>
-    </ul>
-  </nav>
+
+   <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
 
 
-  <%= link_to "New tweet", new_tweet_path %>
 </div>

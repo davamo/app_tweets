@@ -73,6 +73,6 @@ end
 
 gem 'faker', '~> 2.23'
 
-gem "pagy", "~> 5.10"
+gem "pagy", "~> 6.0.4"
 
 gem 'pg_search'
